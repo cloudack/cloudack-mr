@@ -10,6 +10,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 /**
  * @author pudi
@@ -29,5 +30,6 @@ public  class WordCountMapper extends
 			word.set(tokenizer.nextToken());
 			context.write(word, one);
 		}
+		FileOutputFormat.getWorkOutputPath(context);
 	}
 }

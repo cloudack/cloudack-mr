@@ -38,6 +38,8 @@ public class WordCountDriver {
 
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
+		
+		//job.setCombinerClass(WordCountReducer.class);
 
 		job.setMapperClass(WordCountMapper.class);
 		job.setReducerClass(WordCountReducer.class);
